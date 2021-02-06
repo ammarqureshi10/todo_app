@@ -4,6 +4,7 @@ import { addTodo } from "../store/todoSlice";
 //import { makeStyles } from '@material-ui/core/styles';
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,8 +36,12 @@ export default function AddTodo() {
           label="add todo..."
           onChange={(e) => setNewTodo(e.target.value)}
           value={newTodo}
+          required
         />
-        <button>Add todo</button>
+        <br />
+        <Button type="submit" variant="contained" color="secondary">
+          Add todo
+        </Button>
       </form>
     </>
   );

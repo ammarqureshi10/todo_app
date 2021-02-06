@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Filters from "./Filters";
+import { Button } from "@material-ui/core";
 
-export default function Completed() {
+export default function FilterList() {
+  const [filter, setFilter] = useState("");
   const todoArray = useSelector((state) => {
     return state.todoReducer.todoArray;
   });
@@ -25,13 +27,31 @@ export default function Completed() {
       {obj.title}
     </li>
   ));
-  const [filter, setFilter] = useState("ALL");
   return (
     <>
       <div>
-        <button onClick={() => setFilter("ALL")}>ALL</button>
-        <button onClick={() => setFilter("COMPLETED")}>Completed</button>
-        <button onClick={() => setFilter("ACTIVE")}>ACTIVE</button>
+        <br />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setFilter("ALL")}
+        >
+          ALL
+        </Button>{" "}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setFilter("COMPLETED")}
+        >
+          Completed
+        </Button>{" "}
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setFilter("ACTIVE")}
+        >
+          ACTIVE
+        </Button>
       </div>
       <Filters
         filter={filter}

@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodo, toggleStatus } from "../store/todoSlice";
 import { Button } from "@material-ui/core";
+
 export default function TodoList() {
   const dispatch = useDispatch();
   const todoArray = useSelector((state) => {
@@ -10,7 +11,7 @@ export default function TodoList() {
   console.log(todoArray);
   return (
     <>
-      <h2>Todo List</h2>
+      <h2 style={{backgroundColor: "Black",color: "white",maxWidth: "250px",margin: "auto",marginTop: "20px"}}>Todo's List</h2>
       <ul style={{ listStyle: "none" }}>
         {todoArray.map((obj, id) => {
           return (
@@ -24,15 +25,10 @@ export default function TodoList() {
               </Button>
               <button onClick={() => dispatch(deleteTodo(id))}>x</button>
             </li>
+            
           );
         })}
       </ul>
     </>
   );
 }
-/*
-<button onClick={() => dispatch(toggleStatus(id))}>
-                {obj.title}
-              </button>
-*/
-// <button onClick={() => dispatch(deleteTodo(id))}>x</button>
