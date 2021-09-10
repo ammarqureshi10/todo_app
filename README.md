@@ -1,2 +1,2 @@
-# todo_app
-Created with CodeSandbox
+# Simple Todo App using Redux-toolkit
+Link: http://todo-app-ammar01.surge.sh/
